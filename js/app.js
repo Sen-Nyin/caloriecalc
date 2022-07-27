@@ -21,20 +21,32 @@ const personData = {
     let calcWeight = this.weight * 10;
     let calcHeight = this.height * 6.25;
     let calcAge = this.age * 5;
-    this.basal = calcWeight + calcHeight - calcAge + genderDiff;
+    this.basal = Math.ceil(calcWeight + calcHeight - calcAge + genderDiff);
   },
   calcTargetCalorie: function () {
     if (this.goal === "weightLoss") {
       // (Basal * activity) - (basal * activity * goal)
       this.targetCalorie = this.basal * activityLevel[this.activity];
-      this.targetCalorie =
-        this.targetCalorie - this.targetCalorie * goalMacro[this.goal];
+      this.targetCalorie = Math.ceil(
+        this.targetCalorie - this.targetCalorie * goalMacro[this.goal]
+      );
     } else {
-      this.targetCalorie =
-        this.basal * activityLevel[this.activity] + goalMacro[this.goal];
+      this.targetCalorie = Math.ceil(
+        this.basal * activityLevel[this.activity] + goalMacro[this.goal]
+      );
     }
   },
-  calcMacro: function () {},
+  calcMacro: function () {
+    if (this.goal === "weightLoss") {
+      this.targetProtein = Math.ceil((this.targetCalorie * 0.4) / 4);
+      this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
+      this.targetFat = Math.ceil((this.targetCalorie * 0.2) / 9);
+    } else {
+      this.targetProtein = Math.ceil((this.targetCalorie * 0.3) / 4);
+      this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
+      this.targetFat = Math.ceil((this.targetCalorie * 0.3) / 9);
+    }
+  },
   allvalid: true,
 };
 
@@ -52,10 +64,28 @@ const goalMacro = {
   weightMaintain: 0,
 };
 
+const calorieMacro = {
+  fat: 9,
+  protein: 4,
+  carb: 4,
+};
+
 const calculate = () => {
   personData.calcBasal();
   personData.calcTargetCalorie();
-  console.log("Basal ", personData.basal, "Target ", personData.targetCalorie);
+  personData.calcMacro();
+  console.log(
+    "Basal Metabolic Rate: ",
+    personData.basal,
+    "Daily calorie target: ",
+    personData.targetCalorie,
+    "Daily Protein: ",
+    personData.targetProtein,
+    "Daily Carbs: ",
+    personData.targetCarb,
+    "Daily Fat: ",
+    personData.targetFat
+  );
 };
 
 const getInputs = () => {
@@ -65,16 +95,13 @@ const getInputs = () => {
       personData.allvalid = false;
     } else {
       personData[input.id] = input.value;
-      console.log("Logged ", input.id, " as ", input.value);
     }
   }
 };
 
 calcButton.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log("getting inputs");
   getInputs();
-  console.log(personData);
   if (personData.allvalid) {
     calculate();
   }
