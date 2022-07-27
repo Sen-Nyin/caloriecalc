@@ -1,0 +1,45 @@
+@use "../abstracts/" as a;
+
+:root {
+  font-size: 62.5%;
+
+  // Fonts
+
+  --fnt-fam-default: "Roboto", sans-serif;
+  --fnt-sz-default: 1.6rem;
+  --fnt-sz-head-main: 4rem;
+  --fnt-sz-head-sub: 2.5rem;
+  --fnt-wt-default: 400;
+  --fnt-wt-head-sub: 700;
+  --fnt-wt-head-main: 900;
+
+  // Color
+
+  --clr-body-bg: hsl(140, 100%, 86%);
+  --clr-header-main: hsl(151, 33%, 60%);
+  --clr-header-sub: hsl(164, 28%, 68%);
+  --clr-accent: hsl(155, 53%, 45%);
+  --clr-invalid: hsl(0, 98%, 68%);
+  --clr-white: hsl(0, 0%, 98%);
+  --clr-dark: hsl(0, 0%, 33%);
+}
+
+body {
+  font-family: var(--fnt-fam-default);
+  font-size: var(--fnt-sz-default);
+  font-weight: var(--fnt-wt-default);
+  line-height: 2rem;
+  color: var(--clr-dark);
+  text-align: center;
+  background: var(--clr-body-bg);
+  padding: 3rem;
+  @include a.bodyCenter();
+}
+
+.main-area {
+  background-color: var(--clr-white);
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
