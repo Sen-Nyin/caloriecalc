@@ -37,15 +37,24 @@ const personData = {
     }
   },
   calcMacro: function () {
-    if (this.goal === "weightLoss") {
-      this.targetProtein = Math.ceil((this.targetCalorie * 0.4) / 4);
-      this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
-      this.targetFat = Math.ceil((this.targetCalorie * 0.2) / 9);
-    } else {
-      this.targetProtein = Math.ceil((this.targetCalorie * 0.3) / 4);
-      this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
-      this.targetFat = Math.ceil((this.targetCalorie * 0.3) / 9);
-    }
+    // TODO Refactor tertiary statement
+    this.targetProtein = Math.ceil(
+      (this.targetCalorie * this.goal === "weightLoss" ? 0.4 : 0.3) / 4
+    );
+    this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
+    this.targetFat = Math.ceil(
+      (this.targetCalorie * this.goal === "weightLoss" ? 0.2 : 0.3) / 4
+    );
+
+    // if (this.goal === "weightLoss") {
+    //   this.targetProtein = Math.ceil((this.targetCalorie * 0.4) / 4);
+    //   this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
+    //   this.targetFat = Math.ceil((this.targetCalorie * 0.2) / 9);
+    // } else {
+    //   this.targetProtein = Math.ceil((this.targetCalorie * 0.3) / 4);
+    //   this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
+    //   this.targetFat = Math.ceil((this.targetCalorie * 0.3) / 9);
+    // }
   },
   allvalid: true,
 };
