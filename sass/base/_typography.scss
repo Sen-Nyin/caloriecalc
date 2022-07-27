@@ -2,6 +2,8 @@
 
 .header {
   &-main {
+    grid-area: head;
+    padding: 2rem;
     font-weight: var(--fnt-wt-head-main);
     font-size: var(--fnt-sz-head-main);
     color: var(--clr-header-main);
@@ -11,7 +13,7 @@
   &-sub {
     font-weight: var(--fnt-wt-head-sub);
     font-size: var(--fnt-sz-head-sub);
-    color: var(--clr-header-sub);
+    color: var(--clr-dark);
     margin-bottom: 2rem;
   }
 }
