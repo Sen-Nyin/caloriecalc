@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400&display=swap");
 *:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
   all: unset;
   display: revert;
@@ -63,4 +64,72 @@ meter {
 
 :where([draggable=true]) {
   -webkit-user-drag: element;
+}
+
+.header-main {
+  font-weight: var(--fnt-wt-head-main);
+  font-size: var(--fnt-sz-head-main);
+  color: var(--clr-header-main);
+  line-height: 4.5rem;
+  margin-bottom: 2rem;
+}
+.header-sub {
+  font-weight: var(--fnt-wt-head-sub);
+  font-size: var(--fnt-sz-head-sub);
+  color: var(--clr-header-sub);
+  margin-bottom: 2rem;
+}
+
+:root {
+  font-size: 62.5%;
+  --fnt-fam-default: "Roboto", sans-serif;
+  --fnt-sz-default: 1.6rem;
+  --fnt-sz-head-main: 4rem;
+  --fnt-sz-head-sub: 2.5rem;
+  --fnt-wt-default: 400;
+  --fnt-wt-head-sub: 700;
+  --fnt-wt-head-main: 900;
+  --clr-body-bg: hsl(140, 100%, 86%);
+  --clr-header-main: hsl(151, 33%, 60%);
+  --clr-header-sub: hsl(164, 28%, 68%);
+  --clr-accent: hsl(155, 53%, 45%);
+  --clr-invalid: hsl(0, 98%, 68%);
+}
+
+body {
+  font-family: var(--fnt-fam-default);
+  font-size: var(--fnt-sz-default);
+  font-weight: var(--fnt-wt-default);
+  line-height: 2rem;
+  text-align: center;
+  background: var(--clr-body-bg);
+  padding: 3rem;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
+.main-area {
+  background-color: #f9f9f9;
+  padding: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-data__label {
+  font-weight: var(--fnt-wt-head-sub);
+  display: block;
+  margin: 1rem;
+}
+.user-data__input {
+  border: 2px solid var(--clr-accent);
+  display: block;
+  padding: 0.5rem 2rem;
+  border-radius: 50rem;
+  width: 100%;
+}
+
+section {
+  padding: 2rem;
 }/*# sourceMappingURL=styles.css.map */
