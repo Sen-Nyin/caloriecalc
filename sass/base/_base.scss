@@ -29,20 +29,31 @@ body {
   font-size: var(--fnt-sz-default);
   font-weight: var(--fnt-wt-default);
   line-height: 2rem;
+  padding-block: 2rem;
   color: var(--clr-dark);
   text-align: center;
   background: var(--clr-body-bg);
-  padding: 3rem;
   @include a.bodyCenter();
+  @include a.breakpoint(900, min) {
+    text-align: left;
+  }
 }
 
 .main-area {
   background-color: var(--clr-white);
-  padding: 3rem;
+  width: min(90%, 110rem);
   border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas: "head" "input" "results";
+  gap: 2rem;
+  overflow: hidden;
 
   -webkit-box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.29);
   box-shadow: 0px 0px 15px 2px rgba(0, 0, 0, 0.29);
+
+  @include a.breakpoint(900, min) {
+    grid-template-areas: "input head" "input results";
+    grid-template-columns: max-content 1fr;
+    grid-template-rows: max-content 1fr;
+  }
 }
