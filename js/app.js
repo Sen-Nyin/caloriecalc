@@ -73,18 +73,6 @@ const calculate = () => {
   personData.calcBasal();
   personData.calcTargetCalorie();
   personData.calcMacro();
-  console.log(
-    "Basal Metabolic Rate: ",
-    personData.basal,
-    "Daily calorie target: ",
-    personData.targetCalorie,
-    "Daily Protein: ",
-    personData.targetProtein,
-    "Daily Carbs: ",
-    personData.targetCarb,
-    "Daily Fat: ",
-    personData.targetFat
-  );
 };
 
 const applyResults = () => {
@@ -116,7 +104,6 @@ const evaluate = () => {
   const errorMessage = document.querySelector(".error");
   let invalidInput = 0;
   for (let input of inputs) {
-    console.log("Checking valid");
     if (!input.value || (input.tagName === "INPUT" && input.value < 0)) {
       invalidInput++;
       input.classList.add("invalid");
@@ -139,7 +126,6 @@ const evaluate = () => {
 const getInputs = () => {
   for (let input of inputs) {
     personData[input.id] = input.value;
-    console.log(input.tagName);
     input.classList.remove("invalid");
   }
 };
