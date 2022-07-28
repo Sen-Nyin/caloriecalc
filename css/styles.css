@@ -66,22 +66,6 @@ meter {
   -webkit-user-drag: element;
 }
 
-.header-main {
-  grid-area: head;
-  padding: 2rem;
-  font-weight: var(--fnt-wt-head-main);
-  font-size: var(--fnt-sz-head-main);
-  color: var(--clr-header-main);
-  line-height: 4.5rem;
-  margin-bottom: 2rem;
-}
-.header-sub {
-  font-weight: var(--fnt-wt-head-sub);
-  font-size: var(--fnt-sz-head-sub);
-  color: var(--clr-dark);
-  margin-bottom: 2rem;
-}
-
 :root {
   font-size: 62.5%;
   --fnt-fam-default: "Roboto", sans-serif;
@@ -138,12 +122,20 @@ body {
   }
 }
 
-.invalid {
-  border: 2px solid var(--clr-invalid);
+.header-main {
+  grid-area: head;
+  padding: 2rem;
+  font-weight: var(--fnt-wt-head-main);
+  font-size: var(--fnt-sz-head-main);
+  color: var(--clr-header-main);
+  line-height: 4.5rem;
+  margin-bottom: 2rem;
 }
-
-.hidden {
-  display: none;
+.header-sub {
+  font-weight: var(--fnt-wt-head-sub);
+  font-size: var(--fnt-sz-head-sub);
+  color: var(--clr-dark);
+  margin-bottom: 2rem;
 }
 
 .data-input {
@@ -205,4 +197,12 @@ section {
 .calculate:hover {
   background: var(--clr-header-sub);
   color: var(--clr-dark);
+}
+
+.invalid {
+  border: 2px solid var(--clr-invalid);
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=styles.css.map */

@@ -86,13 +86,22 @@ const calculate = () => {
   );
 };
 
+// TODO Evaluate function
+// Loop all values. Increase a variable for fails, 
+
 const getInputs = () => {
   for (let input of inputs) {
+    console.log(input.value);
     if (!input.value) {
-      input.classList.toggle("invalid");
+      input.classList.add("invalid");
+      personData.allvalid = false;
+    } else if (input.tagName === "INPUT" && input.value < 0) {
+      console.log("value less than 0");
       personData.allvalid = false;
     } else {
       personData[input.id] = input.value;
+      console.log(input.tagName);
+      input.classList.remove("invalid");
     }
   }
 };

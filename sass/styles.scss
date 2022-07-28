@@ -1,3 +1,6 @@
-@use "base";
-@use "layout";
-@use "components";
+@use "base/reset";
+@use "base/base";
+@use "base/typography";
+@use "layout/layout";
+@use "components/button";
+@use "base/utility";

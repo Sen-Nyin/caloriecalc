@@ -22,13 +22,31 @@
           </select>
 
           <label for="age" class="user-data__label"> Age </label>
-          <input type="number" class="user-data__input" id="age" required />
+          <input
+            type="number"
+            min="0"
+            class="user-data__input"
+            id="age"
+            required
+          />
 
           <label for="weight" class="user-data__label"> Weight (KG) </label>
-          <input type="number" class="user-data__input" id="weight" required />
+          <input
+            type="number"
+            min="0"
+            class="user-data__input"
+            id="weight"
+            required
+          />
 
           <label for="height" class="user-data__label"> Height (CM) </label>
-          <input type="number" class="user-data__input" id="height" required />
+          <input
+            type="number"
+            min="0"
+            class="user-data__input"
+            id="height"
+            required
+          />
 
           <label for="activity" class="user-data__label">
             Activity Level
@@ -50,7 +68,13 @@
           </select>
 
           <label for="meals" class="user-data__label">Meals Per Day</label>
-          <input type="number" class="user-data__input" id="meals" required />
+          <input
+            type="number"
+            min="0"
+            class="user-data__input"
+            id="meals"
+            required
+          />
           <button class="calculate" id="calculate">Calculate!</button>
         </form>
       </section>
