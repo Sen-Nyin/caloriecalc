@@ -102,9 +102,11 @@ const applyResults = () => {
   dailyProtein.textContent = personData.targetProtein;
   dailyCarbs.textContent = personData.targetCarb;
   dailyFats.textContent = personData.targetFat;
-  proteinMeal.textContent = personData.targetProtein / personData.meals;
-  carbMeal.textContent = personData.targetCarb / personData.meals;
-  fatMeal.textContent = personData.targetFat / personData.meals;
+  proteinMeal.textContent = Math.ceil(
+    personData.targetProtein / personData.meals
+  );
+  carbMeal.textContent = Math.ceil(personData.targetCarb / personData.meals);
+  fatMeal.textContent = Math.ceil(personData.targetFat / personData.meals);
 
   resultsContainer.classList.remove("hidden");
   defaultMessage.classList.add("hidden");
