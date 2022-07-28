@@ -97,6 +97,13 @@ meter {
   background-color: var(--clr-white);
 }
 
+.twit-link {
+  font-weight: var(--fnt-wt-link);
+}
+.twit-link:hover {
+  text-decoration: underline;
+}
+
 :root {
   font-size: 62.5%;
   --fnt-fam-default: "Roboto", sans-serif;
@@ -109,6 +116,7 @@ meter {
   --fnt-wt-head-main: 900;
   --fnt-wt-head-tertiary: 700;
   --fnt-wt-head-macro: 700;
+  --fnt-wt-link: 700;
   --clr-green-bright: hsl(140, 100%, 86%);
   --clr-green-dark: hsl(151, 33%, 60%);
   --clr-green-pale: hsl(164, 28%, 68%);

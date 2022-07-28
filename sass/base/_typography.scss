@@ -32,3 +32,10 @@
   font-weight: var(--fnt-wt-head-sub);
   background-color: var(--clr-white);
 }
+
+.twit-link {
+  font-weight: var(--fnt-wt-link);
+  &:hover {
+    text-decoration: underline;
+  }
+}
