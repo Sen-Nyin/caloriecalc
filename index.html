@@ -80,6 +80,59 @@
       </section>
       <section class="results">
         <h2 class="header-sub">Your results</h2>
+        <p class="default-message">
+          Please input your details into the form on the left.
+        </p>
+        <div class="error hidden">
+          Please ensure that all fields have been completed, and no negative
+          values have been entered!
+        </div>
+        <div class="results-container hidden">
+          <h3 class="header-tertiary">Metabolic Rate</h3>
+          <p class="result-text">
+            Your Basal Metabolic Rate is
+            <span class="target-text" id="basal"></span>. This represents the
+            calories you require each day just for regular bodily operation and
+            activity.
+          </p>
+          <h3 class="header-tertiary">Daily Targets</h3>
+          <p class="result-text">
+            To achieve your goal, your target daily calory intake should be
+            <span class="target-text" id="calorie-target"></span>. This should
+            be broken up into the following macros:
+          </p>
+          <div class="macro-grid">
+            <div class="macro-protein">
+              <p class="header-macro pd-1">Protein</p>
+              <p class="target-text pd-1" id="protein-daily"></p>
+            </div>
+            <div class="macro-carbs">
+              <p class="header-macro pd-1">Carbs</p>
+              <p class="target-text pd-1" id="carbs-daily"></p>
+            </div>
+            <div class="macro-fats">
+              <p class="header-macro pd-1">Fats</p>
+              <p class="target-text pd-1" id="fats-daily"></p>
+            </div>
+          </div>
+
+          <h3 class="header-tertiary">Per Meal</h3>
+
+          <div class="macro-grid">
+            <div class="macro-protein">
+              <p class="header-macro pd-1">Protein</p>
+              <p class="target-text pd-1" id="protein-meal"></p>
+            </div>
+            <div class="macro-carbs">
+              <p class="header-macro pd-1">Carbs</p>
+              <p class="target-text pd-1" id="carbs-meal"></p>
+            </div>
+            <div class="macro-fats">
+              <p class="header-macro pd-1">Fats</p>
+              <p class="target-text pd-1" id="fats-meal"></p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <script src="js/app.js"></script>

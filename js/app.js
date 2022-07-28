@@ -2,6 +2,8 @@
 
 const calcButton = document.getElementById("calculate");
 const inputs = document.querySelectorAll(".user-data__input");
+const defaultMessage = document.querySelector(".default-message");
+const resultsContainer = document.querySelector(".results-container");
 
 const personData = {
   gender: null,
@@ -38,14 +40,13 @@ const personData = {
   },
   calcMacro: function () {
     this.targetProtein = Math.ceil(
-      (this.targetCalorie * this.goal === "weightLoss" ? 0.4 : 0.3) / 4
+      (this.targetCalorie * (this.goal === "weightLoss" ? 0.4 : 0.3)) / 4
     );
     this.targetCarb = Math.ceil((this.targetCalorie * 0.4) / 4);
     this.targetFat = Math.ceil(
-      (this.targetCalorie * this.goal === "weightLoss" ? 0.2 : 0.3) / 4
+      (this.targetCalorie * (this.goal === "weightLoss" ? 0.2 : 0.3)) / 4
     );
   },
-  allvalid: true,
 };
 
 const activityLevel = {
@@ -86,30 +87,66 @@ const calculate = () => {
   );
 };
 
-// TODO Evaluate function
-// Loop all values. Increase a variable for fails, 
+const applyResults = () => {
+  const basalText = document.getElementById("basal");
+  const calorieText = document.getElementById("calorie-target");
+  const dailyProtein = document.getElementById("protein-daily");
+  const dailyCarbs = document.getElementById("carbs-daily");
+  const dailyFats = document.getElementById("fats-daily");
+  const proteinMeal = document.getElementById("protein-meal");
+  const carbMeal = document.getElementById("carbs-meal");
+  const fatMeal = document.getElementById("fats-meal");
+
+  basalText.textContent = personData.basal;
+  calorieText.textContent = personData.targetCalorie;
+  dailyProtein.textContent = personData.targetProtein;
+  dailyCarbs.textContent = personData.targetCarb;
+  dailyFats.textContent = personData.targetFat;
+  proteinMeal.textContent = personData.targetProtein / personData.meals;
+  carbMeal.textContent = personData.targetCarb / personData.meals;
+  fatMeal.textContent = personData.targetFat / personData.meals;
+
+  resultsContainer.classList.remove("hidden");
+  defaultMessage.classList.add("hidden");
+};
+
+const evaluate = () => {
+  const errorMessage = document.querySelector(".error");
+  let invalidInput = 0;
+  for (let input of inputs) {
+    console.log("Checking valid");
+    if (!input.value || (input.tagName === "INPUT" && input.value < 0)) {
+      invalidInput++;
+      input.classList.add("invalid");
+    } else {
+      input.classList.remove("invalid");
+    }
+  }
+  if (invalidInput > 0) {
+    errorMessage.classList.remove("hidden");
+    defaultMessage.classList.add("hidden");
+    resultsContainer.classList.add("hidden");
+    return true;
+  } else {
+    if (!errorMessage.classList.contains("hidden"))
+      errorMessage.classList.add("hidden");
+    return false;
+  }
+};
 
 const getInputs = () => {
   for (let input of inputs) {
-    console.log(input.value);
-    if (!input.value) {
-      input.classList.add("invalid");
-      personData.allvalid = false;
-    } else if (input.tagName === "INPUT" && input.value < 0) {
-      console.log("value less than 0");
-      personData.allvalid = false;
-    } else {
-      personData[input.id] = input.value;
-      console.log(input.tagName);
-      input.classList.remove("invalid");
-    }
+    personData[input.id] = input.value;
+    console.log(input.tagName);
+    input.classList.remove("invalid");
   }
 };
 
 calcButton.addEventListener("click", (e) => {
   e.preventDefault();
-  getInputs();
-  if (personData.allvalid) {
+  if (!evaluate()) {
+    getInputs();
     calculate();
+    applyResults();
   }
 });

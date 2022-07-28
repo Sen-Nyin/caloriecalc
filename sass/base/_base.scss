@@ -9,15 +9,18 @@
   --fnt-sz-default: 1.6rem;
   --fnt-sz-head-main: 4rem;
   --fnt-sz-head-sub: 2.5rem;
+  --fnt-sz-head-tertiary: 1.9rem;
   --fnt-wt-default: 400;
   --fnt-wt-head-sub: 700;
   --fnt-wt-head-main: 900;
+  --fnt-wt-head-tertiary: 700;
+  --fnt-wt-head-macro: 700;
 
   // Color
 
-  --clr-body-bg: hsl(140, 100%, 86%);
-  --clr-header-main: hsl(151, 33%, 60%);
-  --clr-header-sub: hsl(164, 28%, 68%);
+  --clr-green-bright: hsl(140, 100%, 86%);
+  --clr-green-dark: hsl(151, 33%, 60%);
+  --clr-green-pale: hsl(164, 28%, 68%);
   --clr-accent: hsl(155, 53%, 45%);
   --clr-invalid: hsl(0, 98%, 68%);
   --clr-white: hsl(0, 0%, 98%);
@@ -32,7 +35,7 @@ body {
   padding-block: 2rem;
   color: var(--clr-dark);
   text-align: center;
-  background: var(--clr-body-bg);
+  background: var(--clr-green-bright);
   @include a.bodyCenter();
   @include a.breakpoint(900, min) {
     text-align: left;

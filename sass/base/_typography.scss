@@ -6,14 +6,29 @@
     padding: 2rem;
     font-weight: var(--fnt-wt-head-main);
     font-size: var(--fnt-sz-head-main);
-    color: var(--clr-header-main);
+    color: var(--clr-green-dark);
     line-height: 4.5rem;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
   }
   &-sub {
     font-weight: var(--fnt-wt-head-sub);
     font-size: var(--fnt-sz-head-sub);
-    color: var(--clr-dark);
+    color: var(--clr-green-dark);
     margin-bottom: 2rem;
   }
+  &-tertiary {
+    font-weight: var(--fnt-wt-head-tertiary);
+    font-size: var(--fnt-sz-head-tertiary);
+  }
+  &-macro {
+    font-weight: var(--fnt-wt-head-macro);
+  }
+}
+
+.result-text {
+  line-height: 2.5rem;
+}
+.target-text {
+  font-weight: var(--fnt-wt-head-sub);
+  background-color: var(--clr-white);
 }
